@@ -1,16 +1,22 @@
 package com.kkicks.data.core.domain;
 
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
 @Entity
 @Getter
+@Builder
 @ToString
 public class UserAccount {
     
@@ -18,7 +24,7 @@ public class UserAccount {
     //memeber enroll basic info. 
     
     @Id @GeneratedValue
-    private UUID id;
+    private UUID userId;
     
     @Column(nullable = false, length = 15, updatable = false)
     private String name; 
@@ -35,21 +41,23 @@ public class UserAccount {
     @Column(nullable = false, length = 8)
     private String dateOfBirth;
 
+    private String raffleInCnt ;
+
+    private String point;
+
+
+    private Date enrollDate; 
+    private Date updDate;
+
     //identity verification columes.
     private String di; 
     private String ci;
 
 
 
-    public UserAccount(UUID id, String name, String pwd, String phoneNumber, String email, String di, String ci) {
-        this.id = id;
-        this.name = name;
-        this.pwd = pwd;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.di = di;
-        this.ci = ci;
-    } 
+
+
+
 
 
 
