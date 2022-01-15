@@ -24,7 +24,7 @@ public class UserAccount {
     //memeber enroll basic info. 
     
     @Id @GeneratedValue
-    private UUID userId;
+    private String userId;
     
     @Column(nullable = false, length = 15, updatable = false)
     private String name; 
