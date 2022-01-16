@@ -168,6 +168,10 @@ body, ul, li, p, a, label, input, div {
   height: 6px;
 }
 
+#main_banner_bTag{
+  color: #2a5ba3 !important;
+}
+
 @media (min-width: 576px) {
   .tempaltemo-carousel .h1 { font-size: 1em !important;}
 }

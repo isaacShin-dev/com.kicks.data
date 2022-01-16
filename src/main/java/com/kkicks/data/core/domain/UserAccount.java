@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Comment;
 
@@ -21,13 +22,15 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
+@Table(name = "User_Account")
 public class UserAccount {
     
     
     //memeber enroll basic info. 
     
     
-    @Id @GeneratedValue
+    @Id 
+    @Column(name = "user_id")
     private String userId; 
     
     @Column(nullable = false, length = 15, updatable = false)
