@@ -1,6 +1,7 @@
 package com.kkicks.data.core.domain;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Comment;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -23,8 +26,9 @@ public class UserAccount {
     
     //memeber enroll basic info. 
     
+    
     @Id @GeneratedValue
-    private String userId;
+    private String userId; 
     
     @Column(nullable = false, length = 15, updatable = false)
     private String name; 
@@ -41,13 +45,15 @@ public class UserAccount {
     @Column(nullable = false, length = 8)
     private String dateOfBirth;
 
-    private String raffleInCnt ;
+    @Comment("user Point")
+    private String point; // user Point 
 
-    private String point;
+    private Date enrollDate; // date of join
+    @Comment("last time user updated the pwd ")
+    private Date pwdUpdate; // last time user updated the pwd 
 
-
-    private Date enrollDate; 
-    private Date updDate;
+    @Comment("탈퇴여부")
+    private boolean delYn; // whether
 
     //identity verification columes.
     private String di; 
