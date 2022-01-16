@@ -6,11 +6,15 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.kkicks.data.common.UserType;
 
 import org.hibernate.annotations.Comment;
 
@@ -56,11 +60,15 @@ public class UserAccount {
     private Date pwdUpdate; // last time user updated the pwd 
 
     @Comment("탈퇴여부")
-    private boolean delYn; // whether
+    private boolean delYn; 
+
+    @Enumerated(EnumType.STRING)
+    @Comment("ADMIN : 관리자, REGULAR : 정회원, ASSOCIATE : 준회원")
+    private UserType userType; 
 
     //identity verification columes.
-    private String di; 
-    private String ci;
+    // private String di; 
+    // private String ci;
 
 
 
