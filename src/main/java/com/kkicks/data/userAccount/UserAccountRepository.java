@@ -1,6 +1,5 @@
 package com.kkicks.data.userAccount;
 
-import java.util.UUID;
 
 import com.kkicks.data.core.domain.UserAccount;
 

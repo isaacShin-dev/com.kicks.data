@@ -4,17 +4,13 @@ import java.util.UUID;
 
 import com.kkicks.data.core.domain.UserAccount;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 // handles requests regarding userAccount /infos
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserAccountController {
     
@@ -23,19 +19,19 @@ public class UserAccountController {
     ///////////////////////////
     //Member Join 
     ///////////////////////////
-    @PostMapping("/join")
-    public ResponseEntity<?> memberJoin(@RequestBody UserAccount reqAccount){
-        if(reqAccount == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }else{
-            return ResponseEntity.ok().body(userAccountService.joinMember(reqAccount));
-        }        
+    @RequestMapping(value = "/join")
+    public ResponseEntity<?> memberJoin(UserAccount reqAccount){
+ 
+
+        UserAccount newUser = userAccountService.joinMember(reqAccount);
+
+        return ResponseEntity.ok().body(newUser);
     }
     
     ///////////////////////////
     //User Info  
     ///////////////////////////
-    @GetMapping("/{userId}")
+    @RequestMapping("/{userId}")
     public ResponseEntity<?> userInfo(@PathVariable("userId") UUID userId){
 
         return null; 
