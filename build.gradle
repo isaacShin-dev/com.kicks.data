@@ -5,8 +5,8 @@ plugins {
 }
 
 group = 'com.kkicks.data'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+version = 'v20220204'
+sourceCompatibility = '1.8'
 
 configurations {
 	compileOnly {

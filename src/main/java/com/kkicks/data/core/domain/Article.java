@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import groovy.transform.builder.Builder;
+import lombok.Builder;
 import lombok.Getter;
 
 @Entity
