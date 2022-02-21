@@ -16,6 +16,7 @@ import lombok.Setter;
 @ToString
 public class PointShop extends Product {
     
+    private String pointValue ;
 
     
 
