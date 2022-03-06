@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+  <th:block th:replace="inc/header" :: header></th:block>
+
+
+  <body>
+    <!-- main header navBar include -->
+    <th:block th:replace="inc/navBar" :: topNavMenu></th:block>
+    <div class="container">
+     <form>
+        <label>Email</label>
+        <input type="email"></form>
+
+     </form>
+</div>
+
+    <!-- Start Script -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bußßßndle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- End Script -->
+    <th:block th:replace="inc/footer" :: footer></th:block>
+
+  </body>
+
+</html>

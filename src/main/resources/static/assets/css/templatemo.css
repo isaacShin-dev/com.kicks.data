@@ -168,6 +168,13 @@ body, ul, li, p, a, label, input, div {
   height: 6px;
 }
 
+#login-container{
+  margin-top: 150px;
+  background-image: url("./static/assets/img/login_bg.jpg");
+  opacity: 0.6;
+
+}
+
 #main_banner_bTag{
   color: #2a5ba3 !important;
 }
@@ -194,3 +201,5 @@ body, ul, li, p, a, label, input, div {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {}
+
+
