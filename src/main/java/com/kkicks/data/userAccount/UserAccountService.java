@@ -67,4 +67,21 @@ public class UserAccountService {
         return null;
     }
     
+    
+    
+    //////////////////////////////////////
+    //TODO:Member PK duplicate check 
+    //@Date : 2022.03.08
+    //@Testing...
+    //////////////////////////////////////
+    public Boolean findByUserId(String userId) {
+        Boolean isDupId = false;
+        UserAccount duplicateIdChecker = repo.findById(userId).map(m->m).orElse(null);
+
+        if(duplicateIdChecker != null) isDupId = true;
+
+        return isDupId;
+    }
+    
 }
+
