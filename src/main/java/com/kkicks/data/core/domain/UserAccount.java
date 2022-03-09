@@ -31,7 +31,7 @@ public class UserAccount {
     
     
     @Id 
-    @Column(name = "user_id")
+    @Column(nullable = false, updatable = false)
     private String userId; 
     
     @Column(nullable = false, length = 15, updatable = false)

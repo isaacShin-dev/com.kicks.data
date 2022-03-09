@@ -1,12 +1,12 @@
 
 @charset "UTF-8";
-/*  Custom Css  */
+ /* Custom Css   */
 
 
 .login-container{
     margin: 150px 150px 150px 150px;
     background-image: url("src/main/resources/static/assets/img/login_bg.jpg");
-    /* opacity: 0.6; */
+     opacity: 0.6; 
 
 }
 .login-side-img{
@@ -42,4 +42,4 @@
 	width: 90%;
 	height: 1px;
 	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
-}
+} 
