@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 // handles requests regarding userAccount /infos
 @Controller
-
+@RequestMapping("/user")
 public class UserAccountController {
     
     private UserAccountService userAccountService;
@@ -20,7 +20,7 @@ public class UserAccountController {
     ///////////////////////////
     //Member Join 
     ///////////////////////////
-    @RequestMapping(value = "user/join")
+    @RequestMapping(value = "/join")
     public ResponseEntity<?> memberJoin(UserAccount reqAccount){
 
         //duplicate Validation 
@@ -46,25 +46,4 @@ public class UserAccountController {
     }
 
 
-    
-    //////////////////////////
-    //page calling Methods 
-    //////////////////////////
-
-    //Member join page
-    @GetMapping("/join")
-    public String joinPage(){
-        return "user/join";
-    }
-    
-    //Member login page
-    @GetMapping("/login")
-    public String userLogin(){
-        return "user/login";
-    }
-
-    @GetMapping("/info")
-    public String userInfo(){
-        return "user/info";
-    }
 }
