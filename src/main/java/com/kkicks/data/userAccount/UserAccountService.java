@@ -1,6 +1,8 @@
 package com.kkicks.data.userAccount;
 
+import com.kkicks.data.common.Const;
 import com.kkicks.data.core.domain.UserAccount;
+import com.kkicks.data.userAccount.dto.UserResponse;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,23 +16,26 @@ public class UserAccountService {
 
     private final UserAccountRepository repo ; 
 
-
-
-    //////////////////////////////////////
-    //Member Join 
-    //@Date : 2022.01.25
-    //@Tested.
-    //////////////////////////////////////
+/***
+ * @apiNote Member Join service 
+ * @param reqAccount
+ * @return UserResponse
+ */
     @Transactional
-    public UserAccount joinMember(UserAccount reqAccount){
-        
+    public UserResponse joinMember(UserAccount reqAccount){
         UserAccount userCheck = repo.findById(reqAccount.getUserId()).map(m->m).orElse(null);
-        
-        if(userCheck == null){
+        if(userCheck != null){
             UserAccount newUser = repo.save(reqAccount);
-            return newUser;
+            return UserResponse.createResponseMessage(
+                                                        Const.STATUS_OK_CODE, 
+                                                        Const.STATUS_OK_MESSAGE, 
+                                                        "Member successfully registed !");
         }else{
-            return null;
+            return UserResponse.createResponseMessage(
+                                                        Const.STATUS_BAD_REQUEST_CODE, 
+                                                        Const.STATUS_BAD_REQUEST_MESSAGE, 
+                                                        "Member registration failed !"
+                );
         }
     }
 

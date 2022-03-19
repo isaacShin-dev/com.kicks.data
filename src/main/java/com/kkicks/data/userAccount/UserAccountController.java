@@ -2,48 +2,39 @@ package com.kkicks.data.userAccount;
 
 import java.util.UUID;
 
+import com.kkicks.data.common.Const;
 import com.kkicks.data.core.domain.UserAccount;
+import com.kkicks.data.userAccount.dto.UserResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 // handles requests regarding userAccount /infos
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserAccountController {
-    
-    private UserAccountService userAccountService;
 
-    ///////////////////////////
-    //Member Join 
-    ///////////////////////////
+    private @Autowired UserAccountService userAccountService;
+
+/***
+ * @apiNote Member join 
+ * @param reqAccount
+ * @return ResponseEntity<UserResponse>
+ */
     @RequestMapping(value = "/join")
-    public ResponseEntity<?> memberJoin(UserAccount reqAccount){
-
-        //duplicate Validation 
-        if(userAccountService.findByUserId(reqAccount.getUserId())){
-            return ResponseEntity.badRequest().body("Duplicate User Id !");
-        }
-        //join...
-        UserAccount newUser = userAccountService.joinMember(reqAccount);
-        
-        if(newUser == null){
-            return ResponseEntity.badRequest().body("Internal Server Error");
-        }
-        return ResponseEntity.ok().body(newUser);
-    }
+    public ResponseEntity<?> memberJoin(UserAccount reqAccount){ return ResponseEntity.ok().body(userAccountService.joinMember(reqAccount));}
 
     ///////////////////////////
     //User Info 
     ///////////////////////////
-    @RequestMapping("user/{userId}")
+    @RequestMapping("info/{userId}")
     public ResponseEntity<?> userInfo(@PathVariable("userId") UUID userId){
         
         return null; 
     }
-
 
 }
