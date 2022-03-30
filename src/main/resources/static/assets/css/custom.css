@@ -1,0 +1,45 @@
+
+@charset "UTF-8";
+ /* Custom Css   */
+
+
+.login-container{
+    margin: 150px 150px 150px 150px;
+    background-image: url("src/main/resources/static/assets/img/login_bg.jpg");
+     opacity: 0.6; 
+
+}
+.login-side-img{
+    float: right;
+}
+.login-img{
+    width: 600px;
+    height: 450px;
+}
+
+.btn-join{
+    font-size: 150px;
+}
+.wrapper
+{
+	padding-bottom: 90px;
+}
+
+.divider
+{
+	position: relative;
+	margin-top: 90px;
+	height: 1px;
+}
+
+.div-transparent:before
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 1px;
+	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
+} 
